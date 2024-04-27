@@ -1,0 +1,87 @@
+{% load static %}
+
+{% block body %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body{
+      background-image: url('{% static "../static/images/car1.jpg" %}');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      backdrop-filter: blur(7px);
+    }
+    .full-container{
+      margin-top: 10rem;
+    }
+    .all{
+      display: flex;
+      justify-content: center;
+      align-content: center;
+      margin-top: 30px;
+    }
+    .form-container{
+      border:2px solid rgb(99, 97, 97);
+      border-radius: 12px;
+      padding: 23px 80px;
+    }
+    input{
+      width: 21rem;
+      height: 34px;
+      border-radius: 5px;
+      border: none;
+    }
+    input:hover{
+      color: #151515;
+    }
+    h2{
+      display: flex;
+      justify-content: center;
+      color: azure;
+    }
+    .subbtn{
+      padding: 10px 85px;
+      display: flex;
+      margin-left: 4rem;
+      border-radius: 9px;
+      border: none;
+    }
+    .subbtn:hover{
+     background-color: #151515;
+     cursor: pointer;
+     color: rgb(133, 164, 193);
+    }
+    label{
+      color:beige;
+    }
+  </style>
+</head>
+<body>
+  <div class="full-container">
+    <h2>Register</h2>
+  <div class="all">
+    <form class="form-container" action="{% url 'registerlogin' %}" method="POST" background-colo>
+      {% csrf_token %}
+      <label for="name">Name</label><br/>
+      <input id="name" class="name" type="text" name="name" placeholder="Enter Name" required><br/><br/>
+      <label for="email">Email</label><br/>
+      <input id="email" class="email" type="email" name="email" placeholder="Enter Email" required><br/><br/>
+      <label for="phonenumber">Phone Number</label><br/>
+      <input id="phonenumber" class="phonenumber" type="text" name="phonenumber" placeholder="Enter Phone Number" required><br/><br/>
+      <label for="password">Password</label><br/>
+      <input id="password" class="password" type="password" name="password" placeholder="Enter Password" required>
+      <br/><br/><br/>
+      <button class="subbtn" type="submit">Submit</button>
+      <br/>
+            <p style="font-weight: bold; margin-top: 39px; color:white; text-align:center">For Login? <a href="{% url 'login' %}">Login</a> </p>
+  </form>  
+  </div>
+</div>
+</body>
+</html>
+{% endblock %}
